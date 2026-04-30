@@ -1,12 +1,28 @@
-def reverse_string(s):
-    # Base case
-    if len(s) == 0:
-        return s
-    # Recursive case
-    return reverse_string(s[1:]) + s[0]
+#include <stdio.h>
+#include <string.h>
 
-# Input
-s = input().strip()
+void reverse(char str[], int index) {
+    // Base case
+    if (index < 0)
+        return;
 
-# Output
-print(reverse_string(s))
+    // Print current character
+    printf("%c", str[index]);
+
+    // Recursive call
+    reverse(str, index - 1);
+}
+
+int main() {
+    char str[100];
+
+    // Input
+    scanf("%s", str);
+
+    int len = strlen(str);
+
+    // Output (reversed string)
+    reverse(str, len - 1);
+
+    return 0;
+}
